@@ -2,9 +2,7 @@ import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   BarChart3,
-  Check,
   CircleCheck,
-  Facebook,
   Instagram,
   Linkedin,
   Mail,
@@ -167,11 +165,11 @@ export function ConsultioPage({ theme }: { theme: Theme }) {
 
         <section id="sobre" className={isDark ? "bg-night py-6 pb-16" : "bg-page py-6 pb-16"}>
           <div className="mx-auto grid max-w-[1120px] items-center gap-10 px-5 md:grid-cols-[1fr_1.15fr] lg:px-8">
-            <button type="button" onClick={() => setVideoOpen(true)} className="group relative aspect-[4/3] overflow-hidden rounded-lg text-left" aria-label="Assistir vídeo institucional">
+            <Button type="button" variant="ghost" onClick={() => setVideoOpen(true)} className="group relative h-auto aspect-[4/3] overflow-hidden rounded-lg p-0 text-left hover:bg-transparent" aria-label="Assistir vídeo institucional">
               <img src={isDark ? buildingImage : meetingImage} alt={isDark ? "Fachada de edifício corporativo" : "Equipe em reunião estratégica"} loading="lazy" width={1200} height={912} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.025]"/>
               <span className="absolute inset-0 bg-image-shade"/><span className={`absolute left-1/2 top-1/2 flex size-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 ${isDark ? "border-gold bg-night/80 text-gold" : "border-page bg-page text-ink"}`}><Play className="ml-1" fill="currentColor"/></span>
               {isDark && <span className="absolute bottom-9 left-0 right-0 text-center text-xs uppercase tracking-[0.24em] text-night-text">Estratégia hoje<br/>Resultados amanhã</span>}
-            </button>
+            </Button>
             <div><p className={`text-[10px] font-bold uppercase tracking-[0.18em] ${isDark ? "text-gold" : "text-brand"}`}>Sobre a Consultio</p><h2 className="mt-3 max-w-[500px] text-3xl font-bold leading-tight">{isDark ? "Experiência que impulsiona negócios." : <>Mais que consultoria.<br/>Parceria para o futuro.</>}</h2><p className={`mt-4 max-w-[560px] text-sm leading-6 ${isDark ? "text-night-soft" : "text-subtle"}`}>{isDark ? "Unimos conhecimento, metodologia e visão de mercado para entregar soluções que realmente fazem a diferença." : "A Consultio nasceu com o propósito de apoiar empresas na construção de resultados consistentes, unindo experiência, metodologia e visão de futuro."}</p><ul className="mt-5 space-y-3 text-xs">{(isDark ? ["Consultores especialistas", "Metodologias reconhecidas", "Atuação em múltiplos segmentos", "Foco em resultados mensuráveis"] : ["Abordagem prática e personalizada", "Equipe multidisciplinar", "Resultados comprovados", "Atuação em diversos segmentos"]).map((item) => <li key={item} className="flex items-center gap-3"><CircleCheck className={isDark ? "text-gold" : "text-brand"} size={17}/>{item}</li>)}</ul>{isDark && <Button asChild variant="outline" className="mt-6 rounded-full border-gold bg-transparent text-gold hover:bg-gold hover:text-night"><a href="#inicio">Nossa história <ArrowRight/></a></Button>}</div>
           </div>
         </section>
