@@ -19,6 +19,7 @@
  */
 
 @theme inline {
+  --font-sans: "Montserrat", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -59,6 +60,29 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-subtle: var(--subtle);
+  --color-soft: var(--soft);
+  --color-warm: var(--warm);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-pale: var(--brand-pale);
+  --color-brand-contrast: var(--brand-contrast);
+  --color-night: var(--night);
+  --color-night-card: var(--night-card);
+  --color-night-line: var(--night-line);
+  --color-night-text: var(--night-text);
+  --color-night-soft: var(--night-soft);
+  --color-night-muted: var(--night-muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-dim: var(--gold-dim);
+  --color-logo-muted: var(--logo-muted);
+  --color-overlay: var(--overlay);
+  --color-overlay-strong: var(--overlay-strong);
+  --color-image-shade: var(--image-shade);
+  --shadow-card: 0 8px 28px var(--shadow-soft);
 }
 
 :root {
@@ -95,6 +119,29 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --page: oklch(0.995 0.004 75);
+  --ink: oklch(0.18 0.012 70);
+  --subtle: oklch(0.47 0.015 70);
+  --soft: oklch(0.97 0.008 75);
+  --warm: oklch(0.96 0.025 72);
+  --brand: oklch(0.68 0.19 47);
+  --brand-strong: oklch(0.59 0.19 44);
+  --brand-pale: oklch(0.95 0.04 55);
+  --brand-contrast: oklch(1 0 0);
+  --night: oklch(0.105 0.008 70);
+  --night-card: oklch(0.145 0.008 70);
+  --night-line: oklch(0.24 0.012 70);
+  --night-text: oklch(0.97 0.005 75);
+  --night-soft: oklch(0.79 0.012 75);
+  --night-muted: oklch(0.61 0.012 75);
+  --gold: oklch(0.72 0.15 67);
+  --gold-soft: oklch(0.81 0.13 76);
+  --gold-dim: oklch(0.42 0.08 67);
+  --logo-muted: oklch(0.64 0.01 70);
+  --overlay: oklch(0.05 0 0 / 80%);
+  --overlay-strong: oklch(0.02 0 0 / 92%);
+  --image-shade: oklch(0.05 0 0 / 18%);
+  --shadow-soft: oklch(0.25 0.02 70 / 8%);
 }
 
 .dark {
@@ -140,5 +187,50 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    margin: 0;
+    font-family: var(--font-sans);
   }
+
+  html { scroll-behavior: smooth; }
+
+  button, a { letter-spacing: 0; }
+}
+
+.hero-shade-light {
+  background: linear-gradient(90deg, var(--warm) 0%, var(--warm) 41%, transparent 70%);
+}
+
+.hero-shade-dark {
+  background: linear-gradient(90deg, var(--night) 0%, var(--night) 39%, oklch(0.1 0.01 60 / 42%) 58%, transparent 78%);
+}
+
+.cta-band {
+  color: var(--night-text);
+  background: linear-gradient(110deg, var(--night-card) 0%, oklch(0.29 0.075 60) 55%, var(--night) 100%);
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.logo-mark {
+  position: relative;
+  display: block;
+  width: 37px;
+  height: 33px;
+  border-radius: 4px 16px 4px 16px;
+  background: linear-gradient(135deg, var(--gold-soft), var(--brand-strong));
+  transform: skewX(-8deg);
+}
+
+.logo-mark span {
+  position: absolute;
+  inset: 8px -5px 8px 10px;
+  border-radius: 3px 12px 3px 12px;
+  background: var(--page);
+}
+
+.bg-night .logo-mark span { background: var(--night); }
+
+@media (max-width: 767px) {
+  .hero-shade-light { background: linear-gradient(90deg, var(--warm) 0%, oklch(0.96 0.025 72 / 95%) 64%, oklch(0.96 0.025 72 / 55%) 100%); }
+  .hero-shade-dark { background: linear-gradient(90deg, var(--night) 0%, oklch(0.105 0.008 70 / 92%) 70%, oklch(0.105 0.008 70 / 58%) 100%); }
 }
